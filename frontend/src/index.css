@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.mech-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 100%;
+  /* border-radius: 5px 5px 0 0; */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0.15);
+}
+.mech-table thead tr{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.mech_table td  {
+  padding: 12px 15px;
+}
+.mech-table tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+.mech-table tbody tr:nth-of-type(even){
+   background-color: #f3f3f3;
+}
+.mech-table tbody tr:last-of-type{
+  border-bottom: 2px solid #009879;
+}
+.active-row{
+  font-weight: bold;
+  color: 009879;
+
+}
+
+.clients-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 100%;
+  /* border-radius: 5px 5px 0 0; */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0.15);
+}
+.clients-table thead tr{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.clients-table td  {
+  padding: 12px 15px;
+}
+.clients-table tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+.clients-table tbody tr:nth-of-type(even){
+   background-color: #f3f3f3;
+}
+.clients-table tbody tr:last-of-type{
+  border-bottom: 2px solid #009879;
+}
+.active-row{
+  font-weight: bold;
+  color: 009879;
+
+}
