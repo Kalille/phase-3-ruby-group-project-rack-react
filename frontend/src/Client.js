@@ -8,11 +8,8 @@ const Client =(props)=>{
 
     const [client,setClient]=useState([])
     const [loading,setLoading]=useState(false)
-const {comments} = client
-        // useEffect(()=>{
 
-        //     fetch(`http://localhost:9292/comments/${id}`)
-        // })
+     
 
 
 
@@ -22,7 +19,7 @@ const {comments} = client
         const id = props.match.params.id
         fetch(`http://localhost:9292/clients/${id}`)
        
-        // .then(res=>console.log(res))
+        
         .then(res=>res.json())
         .then(setClient)
         .finally(() => {
@@ -39,7 +36,7 @@ if (loading) {
             <h2>{client.first_name}</h2>
             <ClientForm id={props.match.params.id}/>
             <div class="container-fluid">{client.comments ? client.comments.map((comment)=>(
-             <ul> <p> {comment.comment}</p></ul>
+             <ol>  {comment.comment}</ol>
             )) : null}</div>
            
         </div>
