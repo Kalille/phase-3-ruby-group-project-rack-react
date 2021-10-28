@@ -40,9 +40,9 @@ const CarForm =(props)=>{
 
           
         const HandleSubmit=(e)=>{
-  e.preventDefault()
+//   e.preventDefault()
             // const mech_page = history.push(`/Mechanic/${props.match.params.id}`)
-          const direct =   history.push(`/AssignmentChart/${props.mechanic_id}`)
+          const direct =   history.push(`/mechanic/${props.mechanic_id}`)
             fetch('http://localhost:9292/clients',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json',

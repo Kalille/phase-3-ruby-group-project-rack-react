@@ -1,7 +1,5 @@
-class Client <ActiveRecord::Base
-    belongs_to :mechanic
-
-    has_many :comments
+class Comment <ActiveRecord::Base
+    belongs_to :client
 
     # def destroy_by_id(id)
     #     client = self.find_by(id)

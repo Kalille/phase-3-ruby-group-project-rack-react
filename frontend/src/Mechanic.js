@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import CarForm from "./CarForm";
+import AssignmentChart from "./AssignmentChart";
 
 
 
@@ -8,7 +9,7 @@ const Mechanic = (props) => {
    
     const [mechanic, setMechanic] = useState([]);
     const [loading, setLoading] = useState(false)
-    const job = mechanic.clients
+ 
     useEffect(() => {
         setLoading(true);
         const id = props.match.params.id
@@ -34,7 +35,7 @@ const Mechanic = (props) => {
                
                 <h3>{client.first_name}</h3>
             )) : null}</h3> */}
-          
+          <AssignmentChart id={props.match.params.id}/>
         </div>
     )
 }

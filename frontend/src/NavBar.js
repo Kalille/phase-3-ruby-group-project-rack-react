@@ -21,7 +21,7 @@ const NavBar=()=>{
                background: 'gray'
            }}
            >
-               HOME
+              ADD MECHANIC
            </NavLink>
            <NavLink
            to='/MechanicsTable'

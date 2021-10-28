@@ -14,8 +14,9 @@ useEffect(()=>{
         setLoading(false)
       })
         .catch(err=>console.log(err))
-     
+       
     },[])
+   
     if (loading) {
         return <p>Getting your Clients...</p>;
     }

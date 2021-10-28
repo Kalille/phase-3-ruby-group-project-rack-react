@@ -46,7 +46,7 @@ const [experience,setExperience]=useState("")
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <label>New Mechanic</label> <br/>
+           
                 <input onChange={handleChange1} value={name} placeholder="name"/>
                 <br/>
                 <input onChange={handleChange2} value={age} placeholder="age"/>

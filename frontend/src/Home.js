@@ -5,7 +5,7 @@ const Home =()=>{
     return (
         <div>
             <h1>
-               EMPLOYEE WORK QUE
+              NEW EMPLOYEE
                 <MechForm/>
             </h1>
         </div>

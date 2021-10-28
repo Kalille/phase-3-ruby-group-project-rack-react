@@ -8,17 +8,17 @@ class Application
 
     if req.path.match(/test/) 
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json ]]
-    elsif req.path.match(/cars/)
+    elsif req.path.match(/comments/)
       if req.env["REQUEST_METHOD"] === "GET"
  
 
-      return [200, { 'Content-Type' => 'application/json' }, [ Car.all.to_json ]]
+      return [200, { 'Content-Type' => 'application/json' }, [ Comment.all.to_json ]]
     
         
         elsif req.env["REQUEST_METHOD"] === "POST"
         input = JSON.parse(req.body.read)
-        car = Car.create(make: input["make"],model: input["model"],year: input["year"])
-        return [200, { 'Content-Type' => 'application/json' }, [ car.to_json ]]
+        comment = Comment.create(comment: input["comment"],client_id: input["client_id"])
+        return [200, { 'Content-Type' => 'application/json' }, [ comment.to_json ]]
         end
     elsif req.path.match(/mechanics/)
     
@@ -46,11 +46,11 @@ class Application
       if req.env["REQUEST_METHOD"] === "GET"
 
         if req.path.split("/clients/").length === 1
-      return [200, { 'Content-Type' => 'application/json' }, [ Client.all.to_json ]]
+      return [200, { 'Content-Type' => 'application/json' }, [ Client.all.to_json({:include => :comments}) ]]
         elsif
           client_id = req.path.split("/clients/").last
           client1 = Client.find_by(id: client_id)
-          return [200, { 'Content-Type' => 'application/json' }, [ client1.to_json ]]
+          return [200, { 'Content-Type' => 'application/json' }, [ client1.to_json({:include => :comments}) ]]
         end
     elsif req.env["REQUEST_METHOD"] === "POST"
     
@@ -79,6 +79,30 @@ class Application
         # return [200, { 'Content-Type' => 'application/json' }, [ client2.to_json ]]
 
        end
+
+  
+        
+      # elsif req.path.match(/comments/)
+      
+        # if req.env["REQUEST_METHOD"] === "GET"
+  
+      #     if req.path.split("/comments/").length === 1
+        # return [200, { 'Content-Type' => 'application/json' }, [ Comment.all.to_json ]
+      #     elsif
+      #       comment_id = req.path.split("/comments/").last
+      #       comment = Comment.find_by(id: comment_id)
+      #       return [200, { 'Content-Type' => 'application/json' }, [ comment.to_json ]]
+      #     end
+      #   end
+      # elsif req.env["REQUEST_METHOD"] === "POST"
+      
+      #   input = JSON.parse(req.body.read)
+        
+       
+      #   comment1 = Comment.create(comment: input["comment"], client_id: input["client_id"])
+      
+      #   return [200, { 'Content-Type' => 'application/json' }, [ comment1.to_json ] ]
+      # end
     else
       resp.write "Path Not Found"
 
@@ -88,3 +112,18 @@ class Application
   end
 
 end
+
+
+
+#  elsif req.path.match(/comment/)
+#       if req.env["REQUEST_METHOD"] === "GET"
+ 
+
+#       return [200, { 'Content-Type' => 'application/json' }, [ Comment.all.to_json ]]
+    
+        
+#         elsif req.env["REQUEST_METHOD"] === "POST"
+#         input = JSON.parse(req.body.read)
+#         comment = Comment.create(comment: input["comment"]), client_id: input["client_id"]]
+#         return [200, { 'Content-Type' => 'application/json' }, [ comment.to_json ]]
+#         end

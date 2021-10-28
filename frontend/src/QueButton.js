@@ -4,12 +4,24 @@ import {useHistory} from "react-router-dom";
 const QueButton =(props)=>{
 const history = useHistory()
 
+console.log(props)
+  
+const OnClick=(e)=>{
+    e.preventDefault()
+    //  console.log("submit")
+    
+              const redirect =   history.push(`/MechanicsTable`)
 
-const OnClick=()=>{
-history.push("/JobQue")
-}
+     fetch(`http://localhost:9292/clients/${props.clientid}`,{
+         method: "DELETE",
+
+     })
+     .then(redirect)
+ 
+ }
+
     return(
-<button onClick={OnClick}> ADD CLIENT INFO </button>
+<button type="button "onClick={OnClick}> completed </button>
     )
 }
 
