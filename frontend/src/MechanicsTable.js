@@ -1,16 +1,23 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import MechanicLink from './MechanicLink';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router';
+import ByeMechanic from './ByeMechanic';
 
 
 const MechanicsTable = ()=>{
 const [mechanics, setMechanics]= useState([]);
 const [loading, setLoading] = useState(false)
-
+const history = useHistory()
 const mechanicsApi = "http://localhost:9292/mechanics"
 
+const OnClick=(e)=>{
+    e.preventDefault()
+    history.push("/")
+}
+
 useEffect(()=>{
+   
     setLoading(true);
     fetch(mechanicsApi)
     .then(res => res.json())
@@ -25,6 +32,8 @@ useEffect(()=>{
 if (loading) {
     return <p>Getting Employees...</p>;
 }
+
+
     return(
 <div>
     <br/>
@@ -37,6 +46,7 @@ if (loading) {
                 <th> Age </th>
                 <th> Years of Experience </th>
                 <th>assignments </th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -56,6 +66,8 @@ if (loading) {
                             <td>{mechanic.age}</td>
                             <td>{mechanic.experience}</td>
                             <td>{mechanic.clients.length}</td>
+                            <ByeMechanic id={mechanic.id} />
+                            {/* <button onClick={OnClick}>bye felicia</button> */}
                        </tr>
                       
                       
@@ -68,6 +80,7 @@ if (loading) {
                    
     </table>
   </center>
+  <button onClick={OnClick}>refresh to updates</button>
 </div>
 
     )

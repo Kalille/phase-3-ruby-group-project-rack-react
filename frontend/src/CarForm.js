@@ -1,18 +1,13 @@
-import React, { useEffect}from "react";
+import React from "react";
 import {useState} from "react";
-import AssignmentChart from "./AssignmentChart";
+
 import {useHistory } from "react-router-dom";
 
 
-
-
-
-
-
-
-
 const CarForm =(props)=>{
-    // const [mechanic, setMechanic]=useState([])
+    const [clients,setClients]=useState([
+        
+    ])
     const [firstName, setFirstName]=useState("")
     const [lastName,setLastName]=useState("")
     const [make,setMake]=useState("")
@@ -61,22 +56,11 @@ const CarForm =(props)=>{
    
                 })
                 
-                .then(direct)
+                .then(res=>res.json())
+            
                
               
         }
-
-        // useEffect(()=>{
-        //     fetch('http://localhost:9292/mechanics')
-        //     .then(res=>res.json())
-        //     .then(data=>setMechanic(data))
-            
-        // },[])
-
-        // const OnClick=()=>{
-        //     const history = useHistory()
-        //     history.push("/JobQue")
-        // }
 
       
         return(

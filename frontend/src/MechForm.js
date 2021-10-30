@@ -5,11 +5,14 @@ import { useHistory } from 'react-router';
 
 
 const MechForm =()=>{
+    const [mechanic,setMechanic]=useState([])
     const [loading, setLoading] = useState(false)
-const [name, setName]=useState("")
-const [age,setAge]=useState("")
-const [experience,setExperience]=useState("")
-const history = useHistory()
+    const [name, setName]=useState("")
+    const [age,setAge]=useState("")
+    const [experience,setExperience]=useState("")
+    const history = useHistory()
+
+
     const handleChange1 =(e)=>{
             setName(e.target.value)
 }
@@ -22,38 +25,39 @@ const history = useHistory()
             setExperience(e.target.value)
         }
 
-    const handleSubmit=(e)=>{
-  e.preventDefault()
-setLoading(true);
-        const redirect = history.push("/MechanicsTable")
-        fetch('http://localhost:9292/mechanics',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json',
+    const HandleSubmit=(e)=>{
+                e.preventDefault()
+                setLoading(true);
+
+                fetch('http://localhost:9292/mechanics',{
+                     method: 'POST',
+                     headers: {'Content-Type': 'application/json',
                         'Accept':'application/json'},
-            body: JSON.stringify({
+                     body: JSON.stringify({
             
-                name: name,
-                age:   age,
-              experience: experience
+                            name: name,
+                            age:   age,
+                            experience: experience
                
               
             })
-            }).finally(() => {
+            })
+            .finally(() => {
                 setLoading(false)
               })
-              .then(redirect)
-           
+            
+           history.push("/MechanicsTable")
          
            
           
     }
     if (loading) {
-        return <p>ADDING Employee...</p>;
+        return <p>Adding Employee...</p>;
     }
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={HandleSubmit}>
            
                 <input onChange={handleChange1} value={name} placeholder="name"/>
                 <br/>

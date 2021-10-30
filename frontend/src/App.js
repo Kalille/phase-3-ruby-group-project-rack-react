@@ -27,7 +27,6 @@ function App() {
     <Route exact path='/MechForm' component={MechForm}/>
     <Route exact path='/AssignmentChart/:id' component={AssignmentChart}/>
     <Route exact path='/Client/:id' component={Client}/>
-    {/* <Route exact path='/AssignmentChart/client/:id' component={AssignmentChart}/> */}
 
     </Switch>
  

@@ -41,8 +41,10 @@ const HandleChange =(e)=>{
                   
                 })
    
+                }).then(res=>res.json())
+                .then(data => {
+                    setComment({...comment, data})
                 })
-                // .then(console.log("submitted"))
             }
     
 

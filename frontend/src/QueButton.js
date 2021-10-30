@@ -3,25 +3,23 @@ import {useHistory} from "react-router-dom";
 
 const QueButton =(props)=>{
 const history = useHistory()
+const path = history.location.pathname
 
-console.log(props)
   
 const OnClick=(e)=>{
-    e.preventDefault()
-    //  console.log("submit")
-    
-              const redirect =   history.push(`/MechanicsTable`)
-
-     fetch(`http://localhost:9292/clients/${props.clientid}`,{
+        e.preventDefault()
+         const redirect =   history.push(`${path}`)
+     
+        fetch(`http://localhost:9292/clients/${props.clientid}`,{
          method: "DELETE",
-
-     })
-     .then(redirect)
+        })
+        .then(redirect)
+        .then(console.log('deleteds'))
  
  }
 
     return(
-<button type="button "onClick={OnClick}> completed </button>
+        <button type="button "onClick={OnClick}> DELETE </button>
     )
 }
 

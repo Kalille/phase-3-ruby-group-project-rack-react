@@ -46,7 +46,6 @@ useEffect(()=>{
                        
                                 />
                                 </td>
-                               {/* <td className="active-row">{`${client.first_name} ${client.last_name}`}</td> */}
                                <td>{client.make}</td>
                                <td>{client.model}</td>
                                <td>{client.year}</td>
