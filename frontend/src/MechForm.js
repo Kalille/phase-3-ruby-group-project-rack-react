@@ -26,7 +26,7 @@ const MechForm =()=>{
         }
 
     const HandleSubmit=(e)=>{
-                e.preventDefault()
+                // e.preventDefault()
                 setLoading(true);
 
                 fetch('http://localhost:9292/mechanics',{
@@ -46,7 +46,7 @@ const MechForm =()=>{
                 setLoading(false)
               })
             
-           history.push("/MechanicsTable")
+        //    history.push("/MechanicsTable")
          
            
           
@@ -59,11 +59,11 @@ const MechForm =()=>{
         <div>
             <form onSubmit={HandleSubmit}>
            
-                <input onChange={handleChange1} value={name} placeholder="name"/>
+                <input onChange={handleChange1}  placeholder="name"/>
                 <br/>
-                <input onChange={handleChange2} value={age} placeholder="age"/>
+                <input onChange={handleChange2}  placeholder="age"/>
                 <br/>
-                <input onChange={handleChange3} value={experience} placeholder="experience" />
+                <input onChange={handleChange3}  placeholder="experience" />
                 <br/>
                 <button type="submit">SUBMIT</button>
             </form>

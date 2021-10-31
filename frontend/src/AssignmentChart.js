@@ -30,7 +30,7 @@ const AssignmentChart = (props)=>{
                            <th>Make</th>
                            <th>model</th>
                            <th>year</th>
-                           <th>Fixed</th>               
+                           {/* <th>Fixed</th>                */}
                           
 
             </tr>
@@ -45,7 +45,7 @@ const AssignmentChart = (props)=>{
                             <td>{client.make}</td>
                             <td>{client.model}</td>
                             <td>{client.year}</td>
-                            <QueButton clientid={client.id} mechid={props.id}/>
+                            {/* <QueButton clientid={client.id} mechid={props.id}/> */}
                     </tr>      
                                         )) : null }
                                         

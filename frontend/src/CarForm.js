@@ -53,16 +53,24 @@ const CarForm =(props)=>{
                    
                   
                 })
+               
    
                 })
-                
                 .then(res=>res.json())
-            
-               
-              
-        }
+                .then(data=> setClients({
+                    ...clients,
+                    data
+                }))
+             }
 
-      
+    //     const DeleteMech=(e)=>{
+        
+    //         e.preventDefault()
+    //          fetch(`http://localhost:9292/mechanics/${props.mechanic_id}`,{
+    //          method: "DELETE",
+    //         })
+    //         history.push(`/MechanicsTable`)
+    //  }
         return(
             <div>
                 <form onSubmit={HandleSubmit}>
@@ -79,8 +87,9 @@ const CarForm =(props)=>{
                     <br/>
                     <input onChange={handleChange5} value={year} placeholder="year" />
                     <br/>
-                    <button  type="submit">add new </button>
+                    <button  type="submit">add new </button>  
                 </form>
+                {/* <button type="submit" onClick={()=>DeleteMech}>DELETE</button> */}
             </div>
         )
     }

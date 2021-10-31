@@ -31,7 +31,7 @@ const Mechanic = (props) => {
             <h1>mech</h1>
             <h2>{mechanic.name}</h2>
             <CarForm mechanic_id={props.match.params.id}/>
-            <AssignmentChart id={props.match.params.id}/>
+          <AssignmentChart id={props.match.params.id}/>
           </div>
     )
 }

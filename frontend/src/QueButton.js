@@ -19,7 +19,7 @@ const OnClick=(e)=>{
  }
 
     return(
-        <button type="button "onClick={OnClick}> DELETE </button>
+        <button type="submit"onClick={OnClick}> DELETE </button>
     )
 }
 

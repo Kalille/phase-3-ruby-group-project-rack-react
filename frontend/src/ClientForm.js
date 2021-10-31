@@ -6,20 +6,17 @@ const history = useHistory()
 const [comment, setComment]=useState([])
 console.log(props)
   
-    // const HandleSubmit=(e)=>{
-    //    e.preventDefault()
-    //     console.log("submit")
-    //     const direct =   history.push(`/ClientsPage`)
-    //     const parsed =parseInt(props.id)
-    //     fetch(`http://localhost:9292/clients/${props.id}`,{
-    //         method: "DELETE",
+const OnClick=(e)=>{
+    // e.preventDefault()
+     const redirect =   history.push(`/ClientsPage`)
+ 
+    fetch(`http://localhost:9292/clients/${props.id}`,{
+     method: "DELETE",
+    })
+    // .then(redirect)
+    
 
-    //     })
-       
-    //     // .then(res=>console.log(res))
-    //     // .catch(err=>console.log(err))
-    //     .then(direct)
-    // }
+}
 
 const HandleChange =(e)=>{
     setComment(e.target.value)
@@ -27,7 +24,7 @@ const HandleChange =(e)=>{
 
 
     const HandleSubmit=(e)=>{
-      
+    //   e.preventDefault()
             fetch('http://localhost:9292/comments',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json',
@@ -59,10 +56,12 @@ const HandleChange =(e)=>{
   <textarea onChange={HandleChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             <br/>
        
-         {/* <input onChange={HandleChange} as="text-box" size="lg"/> */}
-<button type="submit">SUBMIT</button>
-{/* <button>update</button> */}
+            {/* <button type="submit "onClick={OnClick}> DELETE CLIENT</button> */}
+
+            <button type="submit">SUBMIT NOTES</button>
+
         </form>
+        <button type="submit "onClick={OnClick}> DELETE CLIENT</button>
         </div>
     )
 }
